@@ -10,6 +10,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "bootstrap": "3.3.6",
-    "jquery": "^2.1.4"
+    "electron-prebuilt": "^0.35.4",
+    "jquery": "^2.1.4",
+    "node-localstorage": "^0.6.0"
   }
 }
