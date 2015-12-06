@@ -1,7 +1,7 @@
 var $ = jQuery =require("jquery");
 require("bootstrap");
-var Common = require("./js/scm_browser_common");
-var Client = require("./js/scm_browser_client");
+var Common = require("./js/common");
+var Client = require("./js/client");
 $(function(){
   console.log("starting!");
   $.post(localStorage["baseUrl"]+"api/rest/authentication/login.json",

@@ -1,7 +1,7 @@
-var Common = require("./js/scm_browser_common");
+var Common = require("./js/common");
 var $ = jQuery =require("jquery");
 require("bootstrap");
-var Client = require("./js/scm_browser_client");
+var Client = require("./js/client");
 
 $(function(){
 

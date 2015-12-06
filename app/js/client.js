@@ -1,4 +1,4 @@
-var Common = require("./scm_browser_common");
+var Common = require("./common");
 var $ = jQuery =require("jquery");
 
 var Client= {

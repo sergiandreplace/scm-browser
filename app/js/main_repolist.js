@@ -1,16 +1,33 @@
-var Common = require("./js/scm_browser_common");
+var Common = require("./common");
 var $ = jQuery =require("jquery");
 require("bootstrap");
-var Client = require("./js/scm_browser_client");
+var Client = require("./client");
+var onRepoSelectedListener;
+
+module.exports= {
+  setOnRepoSelected: function(onRepoSelected) {
+    onRepoSelectedListener=onRepoSelected;
+  }
+};
 
 $(function(){
+
+
+
 
   var reposList=$("#reposList");
   var searchRepo=$("#searchRepo");
   var repos, visibleRepos=[];
 
-  var errorRepositories=function() {
 
+  var selectRepo=function(id) {
+    if (onRepoSelectedListener) {
+      onRepoSelectedListener(id);
+    }
+  }
+
+  var errorRepositories=function(id) {
+    //TODO: not able to load repos
   }
   function compareRepos(a,b) {
     if (a.name.toLowerCase() < b.name.toLowerCase())
@@ -25,10 +42,10 @@ $(function(){
     repos.sort(compareRepos);
 
     for (i=0;i<repos.length;i++) {
-      reposList.append('<li class="repoItem" id="'+i+'"><a alt="'+data[i].name+'"" href="">'+data[i].name+'</a></li>');
+      reposList.append('<li class="repoItem" id="'+i+'"><a alt="'+data[i].name+'"" href="#">'+data[i].name+'</a></li>');
     }
     $(".repoItem").click(function() {
-      console.log(repos[$(this)[0].id]);
+      selectRepo($(this)[0].id);
     });
   };
 
